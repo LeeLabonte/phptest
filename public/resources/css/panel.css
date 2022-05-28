@@ -1,0 +1,62 @@
+
+    /* Input Types */
+    /* •••••••••••••••••••••••••••••••• */
+        
+    .input_submit {
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid #263238;
+    color: #263238; 
+    pointer-events: auto;
+    line-height: 40px; 
+    position: relative;
+    padding: 0 50px; 
+    box-sizing: border-box;
+    margin: 0;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 50px;
+    transition: background-color 0.8s;
+    }
+
+    .input_submit:hover {
+        background-color: aqua;
+    }  
+
+    .input_text {
+        display: inline-block;
+        text-decoration: none;
+        border: 2px solid #263238;
+        color: #263238; 
+        pointer-events: auto;
+        line-height: 40px; 
+        position: relative;
+        padding: 0 50px; 
+        box-sizing: border-box;
+        margin: 0;
+        user-select: none;
+        overflow: hidden;
+        border-radius: 50px;
+        }
+
+    /* Panels Style*/
+    /* •••••••••••••••••••••••••••••••• */
+    
+    /* Common panel style */
+    .panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    z-index: 999;
+    color: #000;
+    box-sizing: border-box;
+    background-color: #ECEFF1; }
+  
+    

@@ -13,7 +13,12 @@ class Greeter
 }
 
 $greeter = new Greeter;
-$greeter->whom = 'World';
+if(isset($_POST['name'])){
+    $greeter->whom = $_POST['name'];
+}
+else {
+    $greeter->whom = "World";
+}
 
 // If you want to see your Apache console produce an error, comment out line 16 and watch
 // it respond to a greeting without a recipient.
@@ -39,6 +44,7 @@ $resources = [
 <head>
     <meta charset="utf-8">
     <title><?= $greeter->greet('Greetings') ?></title>
+    <link href="resources/css/panel.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
@@ -55,6 +61,11 @@ $resources = [
                     Open <b>https://<?= $_SERVER["HTTP_HOST"] ?></b> in a new window to ensure links open properly.
                 </p>
             <?php endif ?>
+            
+            <?php
+               echo "<p> Thank-you for submitting your name ".$_POST["name"]."!</p>" 
+            ?>
+
             <p>
                 This is just a starting template, and you can feel free to bring in your 
                 framework or libraries of choice.
@@ -93,6 +104,22 @@ $resources = [
             </p>
             <hr/>
             <div id="app"></div>
+            
+            <?php if(!isset($_POST['submit'])): ?>
+            <div class="panel" id="home">   
+                <h1 class="mt-5">Name Submission</h1>
+                <div class="panel-body">
+                     <form action="" method="POST">
+                        <div class="form">
+                            <input type="text" id="name" name="name" class="input_text" placeholder="Enter Name" autofocus required />
+                            <input type="submit" name="submit" class="input_submit" />
+                        </div>                                
+                    </form>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+            <?php endif ?>
+
         </div>
     </main>
 </body>
@@ -119,7 +146,7 @@ $resources = [
                     clearTimeout(timeout);
                 };
             }, []);
-
+        
         return <div>{tick} seconds have elapsed</div>;
     }
 
